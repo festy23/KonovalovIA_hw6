@@ -9,15 +9,16 @@ import AVFoundation
 var audioPlayer: AVAudioPlayer?
 
 func playMoveSound() {
-    guard let soundURL = Bundle.main.url(forResource: "move_sound", withExtension: "mp3") else {
-        print("Sound file not found.")
-        return
+        guard let soundURL = Bundle.main.url(forResource: "move_sound", withExtension: "mp3") else {
+            print("Sound file not found.")
+            return
+        }
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound: \(error)")
+        }
     }
-    do {
-        let player = try AVAudioPlayer(contentsOf: soundURL)
-        player.play()
-    } catch {
-        print("Failed to play sound: \(error.localizedDescription)")
-    }
-}
 
