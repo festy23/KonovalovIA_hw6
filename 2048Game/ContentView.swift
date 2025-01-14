@@ -15,7 +15,7 @@ struct ContentView: View {
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
 
-            Text("Moves: \(gameManager.moves)")
+            Text("Moves: \(gameManager.movesCount)")
                 .font(.headline)
 
             GameBoardView(gameManager: gameManager)

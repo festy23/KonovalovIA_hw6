@@ -4,7 +4,7 @@ import SwiftUI
 
 class GameManager: ObservableObject {
     @Published var grid: [[Tile?]]
-    @Published var moves: Int = 0
+    @Published var movesCount: Int = 0
     @Published var gameOver: Bool = false
 
     init() {
@@ -15,7 +15,7 @@ class GameManager: ObservableObject {
 
     func restart() {
         grid = Array(repeating: Array(repeating: nil, count: 4), count: 4)
-        moves = 0
+        movesCount = 0
         gameOver = false
         addRandomTile()
         addRandomTile()
@@ -158,7 +158,7 @@ class GameManager: ObservableObject {
         withAnimation(.easeInOut(duration: 0.3)) {
             addRandomTile()
         }
-        moves += 1
+        movesCount += 1
     }
 }
 
